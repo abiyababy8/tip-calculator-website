@@ -20,7 +20,8 @@
     <div class="container mt-5 mb-1">
         <div class="row">
             <div class="col-md-6">
-                <p class="text-center text-light mt-5 fly-in">A Tip Calculator is a handy tool designed to calculate the total
+                <p class="text-center text-light mt-5 fly-in">A Tip Calculator is a handy tool designed to calculate the
+                    total
                     tip amount based on a bill. Users simply input the bill amount and the percentage they wish to give
                     as a tip. The calculator then computes the tip value and displays the total amount to be paid,
                     including the original bill and the tip. It’s a quick and efficient way to ensure accurate tipping,
@@ -33,11 +34,16 @@
                         <input type="number" class="form-control" id="amount" placeholder="Enter the amount">
                     </div>
                     <div class="mb-3">
-                        <label for="percent" class="form-label text-light">Tip Percentage</label>
-                        <input type="number" class="form-control" id="percent"
-                            placeholder="Enter the percentage of the amount to tip">
-                    </div>
 
+                        <label for="percent" class="text-light">Tip Percentage</label>
+                        <br>
+                        <select class="form-select" aria-label="Default select example" id="percent">
+                            <option selected id="first">Enter percentage of amount to be paid</option>
+                            <option value="10">10%</option>
+                            <option value="15">15%</option>
+                            <option value="20">20%</option>
+                          </select>
+                    </div>
                     <button type="button" class="btn btn-success" onclick="calculate()">Calculate</button>
                     <button type="button" class="btn btn-danger" onclick="clearFields()">Reset</button>
                     <h5 class="text-light text-center" id="tip"></h5>
@@ -48,7 +54,7 @@
     </div>
     <footer class="text-muted py-5">
         <div class="container">
-            <p class="mb-1 text-center text-light mt-5">&copy; My To-do website 2025 All Rights Reserved &reg; Abiya
+            <p class="mb-1 text-center text-light mt-5">&copy; My Tip calculator website 2025 All Rights Reserved &reg; Abiya
                 Baby</p>
         </div>
         <script>
@@ -76,10 +82,10 @@
                 }
             }
             function clearFields() {
-                 tip.innerHTML='';
-                 total.innerHTML=''
-                 amount.value='';
-                 percent.value='';
+                tip.innerHTML = '';
+                total.innerHTML = ''
+                amount.value = '';
+                percent.value = first.value;
             }
         </script>
 </body>
