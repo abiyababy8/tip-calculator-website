@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./cal-logo.jpg" type="image/x-icon">
+    <title>Tip Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <div class="navbar d-flex justify-content-start">
+            <h4 style="color: white;" class="ms-3">Tip Calculator</h4>
+        </div>
+    </nav>
+    <div class="container mt-5 mb-1">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-center text-light mt-5 fly-in">A Tip Calculator is a handy tool designed to calculate the total
+                    tip amount based on a bill. Users simply input the bill amount and the percentage they wish to give
+                    as a tip. The calculator then computes the tip value and displays the total amount to be paid,
+                    including the original bill and the tip. It’s a quick and efficient way to ensure accurate tipping,
+                    often used in restaurants, cafes, or other service scenarios.</p>
+            </div>
+            <div class="col-md-6 border border-light border-1 p-5">
+                <form>
+                    <div class="mb-3">
+                        <label for="amount" class="form-label text-light">Bill Amount</label>
+                        <input type="number" class="form-control" id="amount" placeholder="Enter the amount">
+                    </div>
+                    <div class="mb-3">
+                        <label for="percent" class="form-label text-light">Tip Percentage</label>
+                        <input type="number" class="form-control" id="percent"
+                            placeholder="Enter the percentage of the amount to tip">
+                    </div>
+
+                    <button type="button" class="btn btn-success" onclick="calculate()">Calculate</button>
+                    <button type="button" class="btn btn-danger" onclick="clearFields()">Reset</button>
+                    <h5 class="text-light text-center" id="tip"></h5>
+                    <h4 class="text-center text-light" id="total"></h4>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class="text-muted py-5">
+        <div class="container">
+            <p class="mb-1 text-center text-light mt-5">&copy; My To-do website 2025 All Rights Reserved &reg; Abiya
+                Baby</p>
+        </div>
+        <script>
+            let tip = document.getElementById('tip');
+            let total = document.getElementById('total');
+            // Reference the input elements
+            let amount = document.getElementById('amount');
+            let percent = document.getElementById('percent');
+            function calculate() {
+                // Get the values and convert them to numbers
+                let amounts = parseFloat(amount.value);
+                let percents = parseFloat(percent.value);
+
+                // Check if the inputs are valid
+                if (amounts !== '' && percents !== '') {
+                    // Calculate tip and total amounts
+                    let tipAmount = (amounts * percents) / 100;
+                    let totalAmount = amounts + tipAmount;
+
+                    // Update the DOM elements with calculated values
+                    tip.innerHTML = `Tip amount: ₹${tipAmount.toFixed(2)}`;
+                    total.innerHTML = `Total amount to be paid: ₹${totalAmount.toFixed(2)}`;
+                } else {
+                    alert("Please input both fields correctly!");
+                }
+            }
+            function clearFields() {
+                 tip.innerHTML='';
+                 total.innerHTML=''
+                 amount.value='';
+                 percent.value='';
+            }
+        </script>
+</body>
+
+</html>
