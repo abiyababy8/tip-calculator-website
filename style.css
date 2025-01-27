@@ -1,6 +1,9 @@
 body{
     background-image: linear-gradient(to bottom,#441752,#8174A0,#A888B5,#EFB6C8);
 }
+.upscale:hover{
+  transform: scale(1.015);
+}
 .fly-in {
     opacity: 0;
     transform: translateX(-100%);
