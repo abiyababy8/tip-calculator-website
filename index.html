@@ -20,7 +20,7 @@
     <div class="container mt-5 mb-1">
         <div class="row">
             <div class="col-md-6">
-                <p class="text-center text-light mt-5 fly-in">A Tip Calculator is a handy tool designed to calculate the
+                <p class="text-center text-light mt-5 fly-in">A <span style="font-weight: bolder;">Tip Calculator</span> is a handy tool designed to calculate the
                     total
                     tip amount based on a bill. Users simply input the bill amount and the percentage they wish to give
                     as a tip. The calculator then computes the tip value and displays the total amount to be paid,
@@ -38,13 +38,13 @@
                         <label for="percent" class="text-light">Tip Percentage</label>
                         <br>
                         <select class="form-select" aria-label="Default select example" id="percent">
-                            <option selected id="first">Enter percentage of amount to be paid</option>
+                            <option selected id="first">Select Tip percentage</option>
                             <option value="10">10%</option>
                             <option value="15">15%</option>
                             <option value="20">20%</option>
                           </select>
                     </div>
-                    <button type="button" class="btn btn-success" onclick="calculate()">Calculate</button>
+                    <button type="button" class="btn btn-success" onclick="calculate()">Calculate Tip</button>
                     <button type="button" class="btn btn-danger" onclick="clearFields()">Reset</button>
                     <h5 class="text-light text-center" id="tip"></h5>
                     <h4 class="text-center text-light" id="total"></h4>
@@ -69,7 +69,7 @@
                 let percents = parseFloat(percent.value);
 
                 // Check if the inputs are valid
-                if (amounts !== '' && percents !== '') {
+                if (!isNaN(amounts) && !isNaN(percents)) {
                     // Calculate tip and total amounts
                     let tipAmount = (amounts * percents) / 100;
                     let totalAmount = amounts + tipAmount;
